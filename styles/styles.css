@@ -1,0 +1,43 @@
+
+html {  
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    color: #b34848;
+}
+
+.blog-masthead {   
+    background-color: #b34848;
+}
+
+.blog-post a {
+    color: #b34848;
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
+}
+
+nav .btn {
+    color: #b34848;
+    border-color: #b34848;
+}
+
+nav .btn:hover {
+    background-color: #b34848;
+    border-color: #b34848;
+}
+
+.comments ul {
+    list-style-type: none;
+}
+
+.comments h3 {
+    font-size: 18px;
+}
+
+.comments p {
+    color: #555;
+    font-size: 14px;
+}
