@@ -1,6 +1,6 @@
 <?php
 
-    include 'connection.php';
+    require 'connection.php';
     include_once 'functions.php';
 
     try {
@@ -9,6 +9,8 @@
         echo "Error while fetching posts.";
         echo $e->getMessage();
     }
+
+    
 
 ?>
 
@@ -41,31 +43,38 @@
 
         <div class="col-sm-8 blog-main">
 
-        <?php forEach ($posts as $post) { ?>
+        <?php foreach ($posts as $post) { 
+
+            try {
+                $author = getAuthor($post['author_id']);
+            } catch (PDOException $e) {
+                echo "Error while fetching author with id " .$post['author_id'].".";
+                echo $e->getMessage();
+            }
+
+        ?>
+            
 
             <div class="blog-post">
                 <h2 class="blog-post-title">
-                    <a href="single_post.php?id=<?php echo $post['id']; ?>">
+                    <a class="<?php echo $author['gender']; ?>" href="single_post.php?id=<?php echo $post['id']; ?>">
                         <?php echo $post['title']; ?>
                     </a>
                 </h2>
                 <p class="blog-post-meta">
                     <?php echo $post['created_at']; ?> by 
-                    <a href="#">
-                        <?php echo $post['author']; ?>
+                    <a class="<?php echo $author['gender']; ?>" href="#">
+                        <?php echo $author['fname']." ".$author['lname']; ?>
                     </a>
                 </p>
 
                 <p> <?php echo $post['body']; ?> </p>
             </div><!-- /.blog-post -->
-            
+
         <?php } ?>
 
 
-            <nav class="blog-pagination">
-                <a class="btn btn-outline-primary" href="#">Older</a>
-                <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-            </nav>
+
 
         </div><!-- /.blog-main -->
 

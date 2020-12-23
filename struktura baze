@@ -1,0 +1,32 @@
+CREATE DATABASE blog;
+USE blog;
+
+CREATE TABLE posts (
+    id int NOT NULL AUTO_INCREMENT,
+    title varchar(255) UNIQUE NOT NULL,
+    body varchar(2048) NOT NULL,
+    author_id int NOT NULL,
+    created_at DATETIME DEFAULT NOW(),
+    PRIMARY KEY (id),
+    FOREIGN KEY (author_id) REFERENCES authors(id)
+);
+
+CREATE TABLE comments (
+    id int NOT NULL AUTO_INCREMENT,
+    author_id int NOT NULL,
+    text varchar(2048) NOT NULL,
+    post_id int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (post_id) REFERENCES posts(id),
+    FOREIGN KEY (author_id) REFERENCES authors(id)
+);
+
+CREATE TABLE authors (
+    id int NOT NULL AUTO_INCREMENT,
+    fname varchar(255) NOT NULL,
+    lname varchar(255) NOT NULL,
+    gender varchar(10) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+

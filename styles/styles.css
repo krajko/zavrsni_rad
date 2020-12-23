@@ -11,20 +11,33 @@ h1, h2, h3 {
     background-color: #b34848;
 }
 
-.blog-post a {
+/* a {
     color: #b34848;
 }
 
-.blog-post a:hover {
+a:hover {
+    color: #b34848;
     text-decoration: underline;
+} */
+
+form textarea {
+    width: 75%;
 }
 
-nav .btn {
+form input {
+    width: 75%;
+}
+
+form button, input, textarea {
+    margin-top: 1rem;
+}
+
+.btn {
     color: #b34848;
     border-color: #b34848;
 }
 
-nav .btn:hover {
+.btn:hover {
     background-color: #b34848;
     border-color: #b34848;
 }
@@ -40,4 +53,30 @@ nav .btn:hover {
 .comments p {
     color: #555;
     font-size: 14px;
+}
+
+form div {
+    width: 75%;
+    /* text-align: left; */
+}
+
+.blog-post textarea {
+    width: 75%;
+    resize: none;
+    overflow: hidden;
+}
+
+.male {
+    color: #007bff;
+}
+.male:hover {
+    color: #007bff;
+}
+
+.female {
+    color: #b34848;
+}
+
+.female:hover {
+    color: #b34848;
 }
